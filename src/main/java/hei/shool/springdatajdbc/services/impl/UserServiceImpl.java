@@ -36,6 +36,14 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.save(user);
     }
 
+    @Override
+    public List<UserDTO> getUserByUsernameContaining(String username) {
+        final var users = userRepository.findByUsernameIsContainingIgnoreCase(username);
+        return users.stream()
+                .map(this::convertToUserDTO)
+                .collect(Collectors.toList());
+    }
+
     private UserDTO convertToUserDTO(User user) {
         RoleDTO roleDTO = null;
         if (user.getRole() != null && user.getRole().getId() != null) {

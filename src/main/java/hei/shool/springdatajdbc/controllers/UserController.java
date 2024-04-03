@@ -23,6 +23,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/search")
+    public List<UserDTO> getUserByUsernameContaining(@RequestParam String username){
+        return userService.getUserByUsernameContaining(username);
+    }
+
 
     @PostMapping
     public User createUser(@RequestBody User user) {

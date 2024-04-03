@@ -9,5 +9,6 @@ public interface UserService {
     List<UserDTO> getAllUsers();
 
     User saveUser(User user);
+    List<UserDTO> getUserByUsernameContaining(String username);
 
 }
