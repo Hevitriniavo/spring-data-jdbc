@@ -8,7 +8,8 @@ import java.util.List;
 public interface UserService {
     List<UserDTO> getAllUsers();
 
-    User saveUser(User user);
+    UserDTO saveUser(User user);
     List<UserDTO> getUserByUsernameContaining(String username);
 
+    UserDTO deleteById(Long id);
 }
