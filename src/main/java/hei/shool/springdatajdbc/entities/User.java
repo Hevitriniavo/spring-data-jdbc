@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.jdbc.core.mapping.AggregateReference;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -22,7 +21,4 @@ public class User {
     private String password;
 
     private AggregateReference<Role, Long> role;
-
-    @Transient
-    private Role roleDos;
 }

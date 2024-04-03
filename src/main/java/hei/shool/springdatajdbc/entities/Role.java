@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.HashSet;
 import java.util.Set;
-
 
 @Table("roles")
 @Data
@@ -21,6 +19,6 @@ public class Role {
 
     private String name;
 
-    @Transient
-    final Set<User> role = new HashSet<>();
+    @MappedCollection(idColumn = "role")
+    Set<User> users;
 }
