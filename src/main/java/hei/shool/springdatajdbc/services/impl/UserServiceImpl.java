@@ -57,14 +57,15 @@ public class UserServiceImpl implements UserService {
 
     private UserDTO convertToUserDTO(User user) {
         RoleDTO roleDTO = null;
-//        if (user.getRole() != null && user.getRole().getId() != null) {
-//            final var role = roleRepository
-//                    .findById(user.getRole().getId())
-//                    .orElse(null);
-//            if (role != null) {
-//                roleDTO = new RoleDTO(role.getId(), role.getName());
-//            }
-//        }
+        if (user.getRole() != null && user.getRole().getId() != null) {
+            final var role = roleRepository
+                    .findById(user.getRole().getId())
+                    .orElse(null);
+            if (role != null) {
+                roleDTO = new RoleDTO(role.getId(), role.getName());
+            }
+        }
         return new UserDTO(user.getId(), user.getUsername(), user.getPassword(), roleDTO);
     }
+
 }
